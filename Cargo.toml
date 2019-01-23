@@ -1,6 +1,6 @@
 [package]
 name = "siredir"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["sosik"]
 edition = "2018"
 description = "Simple redirector"
