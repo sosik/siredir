@@ -1,0 +1,25 @@
+[package]
+name = "siredir"
+version = "0.1.0"
+authors = ["sosik"]
+edition = "2018"
+description = "Simple redirector"
+license = "MIT"
+
+[badges]
+travis-ci = { repository = "sosik/siredir", branch = "master" }
+maintenance = { status = "experimental" }
+
+[dependencies]
+"clap" = "^2.32"
+"env_logger" = "^0.6"
+"futures" = "^0.1"
+"hyper" = "^0.12"
+"log" = "^0.4"
+"regex" = "^1.1"
+"hcontext" = {version = "0.1", path = "../hcontext"}
+"yaps-hyper-router" = {version = "0.1", path = "../yaps-hyper-router"}
+"serde_yaml" = "^0.8"
+"serde" = "^1.0"
+"serde_derive" = "^1.0"
+"tokio" = "^0.1"
