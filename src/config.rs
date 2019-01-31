@@ -15,7 +15,7 @@ pub struct Config {
 pub struct ConfigRedirectRecord {
     pub re: String,
     pub rewrite_rule: String,
-    pub status_code: u8,
+    pub status_code: u16,
 }
 
 impl Config {

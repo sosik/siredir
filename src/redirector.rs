@@ -4,7 +4,7 @@ use regex::Regex;
 use yaps_hyper_router as router;
 
 pub struct Redirector {
-    redirects: Vec<(Regex, String, u8)>,
+    redirects: Vec<(Regex, String, u16)>,
 }
 
 impl Redirector {
@@ -17,7 +17,7 @@ impl Redirector {
         &mut self,
         regex_str: impl AsRef<str>,
         replacement: impl Into<String>,
-        code: u8,
+        code: u16,
     ) -> Result<(), Box<std::error::Error>> {
         Ok(self
             .redirects
@@ -45,7 +45,8 @@ impl router::Handler for Redirector {
         }) {
             return Box::new(futures::future::ok(
                 hyper::Response::builder()
-                    .status(200)
+                    .status(found.2)
+					.header("Location", found.0.replace(&full_url, found.1.as_str()).into_owned())
                     .body(hyper::Body::from(
                         found.0.replace(&full_url, found.1.as_str()).into_owned(),
                     ))
